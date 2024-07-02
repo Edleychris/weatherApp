@@ -8,7 +8,7 @@ app.use((req, res, next) => {
     next();
   });
 app.get('/api/hello', async (req, res) => {
-    const visitorName = req.query.visitor_name;
+    const visitorName = req.query.visitor_name || 'Dear';
     const clientIp = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || req.headers['cf-connecting-ip'] || req.connection.remoteAddress || req.ip;
 
     try {
